@@ -9,3 +9,11 @@
 2. search for font, 
 3. add 'Fira Code' to Editor: font family
 4. enable Editor: font ligatures
+
+
+# Notes
+## React
+Component in react:
+>is something that returns a markup
+
+Power of react is that it has `composability model` - we can put components inside components 

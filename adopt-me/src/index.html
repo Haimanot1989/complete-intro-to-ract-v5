@@ -14,8 +14,14 @@
     <script>
         // your code is going to go here for now
         const App = () => {
-            
+            return React.createElement(
+                "div",
+                {},
+                React.createElement("h1", {}, "Adopt Me!")
+            )
         }
+
+        ReactDOM.render(React.createElement(App), document.getElementById("root"))
     </script>
 </body>
 </html>
