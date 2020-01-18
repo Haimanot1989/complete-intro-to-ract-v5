@@ -9,7 +9,9 @@
 2. search for font, 
 3. add 'Fira Code' to Editor: font family
 4. enable Editor: font ligatures
-
+### That make writing react easy
+* Generate a package.json file
+>`npm init -y`
 
 # Notes
 ## React
