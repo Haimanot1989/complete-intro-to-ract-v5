@@ -14,6 +14,8 @@
 >`npm init -y`
 * Prettier - for better code quality by maintaining consistency in code format
 > `npm i -D prettier`
+> add prettier to scripts
+> format your code using `npm run format`
 
 # Notes
 ## React
