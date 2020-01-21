@@ -34,6 +34,13 @@
         3. add lint to package.json scripts
     * Enable in VSCode
         1. EXTENSIONS --> ESLint --> Install
+
+### Packager / Bundler
+#### Parcel
+* How to install
+    1. `npm i -D parcel-bundler`
+    2. add it to script in package.json and point it to index.html
+    3. run using `npm run dev` It has hot reloading
 # Notes
 ## React
 Component in react:
