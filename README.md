@@ -12,6 +12,8 @@
 ### That make writing react easy
 * Generate a package.json file
 >`npm init -y`
+* Prettier - for better code quality by maintaining consistency in code format
+> `npm i -D prettier`
 
 # Notes
 ## React
