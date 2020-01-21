@@ -26,7 +26,14 @@
             * In the root folder of the project `touch .prettierrc`
             * put {} to use the standard formatting
 
-
+* ESLint - smart code style checker
+    * How to install and setup
+        1. `npm i -D eslint eslint-config-prettier`
+        2. create config file in the root directory and add config info
+            * `touch .eslintrc.json`
+        3. add lint to package.json scripts
+    * Enable in VSCode
+        1. EXTENSIONS --> ESLint --> Install
 # Notes
 ## React
 Component in react:
