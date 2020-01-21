@@ -32,6 +32,9 @@
         2. create config file in the root directory and add config info
             * `touch .eslintrc.json`
         3. add lint to package.json scripts
+        4. configure it for react
+            * `npm install -D babel-eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react`
+        5. add config details to the `.eslintrc.json` file
     * Enable in VSCode
         1. EXTENSIONS --> ESLint --> Install
 * npm Intellisense - autocompletion
