@@ -34,6 +34,9 @@
         3. add lint to package.json scripts
     * Enable in VSCode
         1. EXTENSIONS --> ESLint --> Install
+* npm Intellisense - autocompletion
+    * Enable in VSCode
+        1. EXTENSIONS --> npm Intellisense --> Install
 
 ### Packager / Bundler
 #### Parcel
@@ -41,6 +44,12 @@
     1. `npm i -D parcel-bundler`
     2. add it to script in package.json and point it to index.html
     3. run using `npm run dev` It has hot reloading
+
+### Libraries
+#### React and ReactDOM
+* How to install
+    1. `npm i react react-dom`
+        * This will make these libraries present in our local computer
 # Notes
 ## React
 Component in react:
