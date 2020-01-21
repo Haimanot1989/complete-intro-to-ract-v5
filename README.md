@@ -55,7 +55,6 @@
         * This will make these libraries present in our local computer
 # Notes
 ## React
-Component in react:
->is something that returns a markup
-
-Power of react is that it has `composability model` - we can put components inside components 
+* Component in react is something that returns a markup
+* Power of react is that it has `composability model` - we can put components inside components 
+* To-way data binding is not free in react, it has to be setup
