@@ -34,7 +34,11 @@
         3. add lint to package.json scripts
         4. configure it for react
             * `npm install -D babel-eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react`
-        5. add config details to the `.eslintrc.json` file
+            * add config details to the `.eslintrc.json` file
+        5. Configure it for hooks
+            * `npm i -D eslint-plugin-react-hooks`
+            * add it to rules and plugins
+  
     * Enable in VSCode
         1. EXTENSIONS --> ESLint --> Install
 * npm Intellisense - autocompletion
@@ -58,3 +62,4 @@
 * Component in react is something that returns a markup
 * Power of react is that it has `composability model` - we can put components inside components 
 * To-way data binding is not free in react, it has to be setup
+* All hooks can not be utilized with control flow statements, because the order they are called in matters
