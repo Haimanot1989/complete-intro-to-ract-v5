@@ -13,9 +13,19 @@
 * Generate a package.json file
 >`npm init -y`
 * Prettier - for better code quality by maintaining consistency in code format
-> `npm i -D prettier`
-> add prettier to scripts
-> format your code using `npm run format`
+    * How to install and set up
+        1. `npm i -D prettier`
+        2. add prettier to scripts
+        3. format your code using `npm run format`
+    *  Enabling formatting when saving code in VSCode
+        1. EXTENSIONS --> Prettier - Code formatter --> Install
+        2. Code --> Preferences --> Settings --> <Turn on two things>
+            * Editor: format on save
+            * Prettier: Require Config
+        3. Create a bash config file
+            * In the root folder of the project `touch .prettierrc`
+            * put {} to use the standard formatting
+
 
 # Notes
 ## React
