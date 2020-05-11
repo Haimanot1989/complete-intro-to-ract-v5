@@ -63,3 +63,160 @@
 * Power of react is that it has `composability model` - we can put components inside components 
 * To-way data binding is not free in react, it has to be setup
 * All hooks can not be utilized with control flow statements, because the order they are called in matters
+
+### Hooks
+* Create the component
+* Set the state of the component
+    * import useState
+    * declare a hook - (a way of having a stateful logic with react)
+        * `  const [location, setLocation] = useState("Seattle, WA");`
+        * location is the current state
+        * setLocation is un updater for that piece of state. You can call this method whatever you like.
+        * "Seattle, WA is the default 
+        * useState creates a hook
+    * give the filed that you want to manage the state of an onChangeHandler
+        ```jsx 
+        const SearchParams = () => {
+        const [location, setLocation] = useState("Seattle, WA");
+
+        return (
+            <div className="search-params">
+            <form>
+                <label htmlFor="location">
+                Location
+                <input
+                    id="location"
+                    value={location}
+                    placeholder="location"
+                    onChange={e => setLocation(e.target.value)}
+                />
+                </label>
+                <button>Submit</button>
+            </form>
+            </div>
+        );
+        };
+        ```
+    * Add two selects where one is dependent on the other
+        ```jsx
+        const SearchParams = () => {
+        const [location, setLocation] = useState("Seattle, WA");
+        const [animal, setAnimal] = useState("dog");
+        const [breed, setBreed] = useState("");
+        const [breeds, setBreeds] = useState([]);
+        return (
+            <div className="search-params">
+            <form>
+                <label htmlFor="location">
+                Location
+                <input
+                    id="location"
+                    value={location}
+                    placeholder="location"
+                    onChange={e => setLocation(e.target.value)}
+                />
+                </label>
+                <label htmlFor="animal">
+                Animal
+                <select
+                    id="animal"
+                    value={animal}
+                    onChange={e => setAnimal(e.target.value)}
+                >
+                    <option>All</option>
+                    {ANIMALS.map(animal => (
+                    <option key={animal} value={animal}>
+                        {animal}
+                    </option>
+                    ))}
+                </select>
+                </label>
+                <label htmlFor="breed">
+                Breed
+                <select
+                    id="breed"
+                    value={breed}
+                    onChange={e => setBreed(e.target.value)}
+                    disabled={breeds.length === 0}
+                >
+                    <option>All</option>
+                    {breeds.map(breedString => (
+                    <option key={breedString} value={breedString}>
+                        {breedString}
+                    </option>
+                    ))}
+                </select>
+                </label>
+                <button>Submit</button>
+            </form>
+            </div>
+        );
+        };
+
+        export default SearchParams;
+
+        ```
+    * Generic dropdown hook: extract the common thing about creating dropdowns to a component
+        ```jsx
+            import React, { useState } from "react";
+
+            const useDropdown = (label, defaultState, options) => {
+            const [state, setState] = useState(defaultState);
+            const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+            const Dropdown = () => (
+                <label htmlFor={id}>
+                {label}
+                <select
+                    id={id}
+                    value={state}
+                    onChange={e => setState(e.target.value)}
+                    onBlur={e => setState(e.target.value)}
+                    disabled={options.length === 0}
+                >
+                    <option>All</option>
+                    {options.map(item => (
+                    <option key={item} value={item}>
+                        {item}
+                    </option>
+                    ))}
+                </select>
+                </label>
+            );
+
+            return [state, Dropdown, setState];
+            };
+
+            export default useDropdown;
+        ```
+    * SearchParams component when using the generic dropdown hook
+        ```jsx
+            import React, { useState } from "react";
+            import { ANIMALS } from "@frontendmasters/pet";
+            import useDropdown from "./useDropdown";
+            const SearchParams = () => {
+            const [location, setLocation] = useState("Seattle, WA");
+            const [breeds, setBreeds] = useState([]);
+            const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+            const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+            return (
+                <div className="search-params">
+                <form>
+                    <label htmlFor="location">
+                    Location
+                    <input
+                        id="location"
+                        value={location}
+                        placeholder="location"
+                        onChange={e => setLocation(e.target.value)}
+                    />
+                    </label>
+                    <AnimalDropdown />
+                    <BreedDropdown />
+                            <button>Submit</button>
+                </form>
+                </div>
+            );
+            };
+
+            export default SearchParams;
+        ```
