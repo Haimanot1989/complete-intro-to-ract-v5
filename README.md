@@ -220,3 +220,59 @@
 
             export default SearchParams;
         ```
+
+### Effects
+* import the api client `import pet from "@frontendmasters/pet"`
+* import `useEffect` from `react`
+* call `useEffect()` in the component. Give it a function as a parameter. The callback will run after the component has rendered. Call to apis should be here, as you don't want to delay displaying something to the user, until the ajax response has come back.
+    * An example of an effect and its declared dependencies(Which change of states should trigger this effect?). Whatever state updater you are calling on the callback should be listed in the dependency array(setBreeds and setBreed). If you do not have a dependency array, then whatever change of state in the component will trigger the effect(location for example). The effect will run every time something updates. If you want it to run once, just use empty array. This is useful for setting things up.
+    ```jsx
+        import React, { useState, useEffect } from "react";
+        import pet, { ANIMALS } from "@frontendmasters/pet";
+        import useDropdown from "./useDropdown";
+
+        const SearchParams = () => {
+        const [location, setLocation] = useState("Seattle, WA");
+        const [breeds, setBreeds] = useState([]);
+        const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+        const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
+
+        useEffect(() => {
+            setBreeds([]);
+            setBreed("");
+
+            pet.breeds(animal).then(
+            ({ breeds }) => {
+                debugger;
+                const breedStrings = breeds.map(({ name }) => name);
+                setBreeds(breedStrings);
+            },
+            error => console.error(error)
+            );
+        }, [animal, setBreed, setBreeds]);
+
+        return (
+            <div className="search-params">
+            <form>
+                <label htmlFor="location">
+                Location
+                <input
+                    id="location"
+                    value={location}
+                    placeholder="location"
+                    onChange={e => setLocation(e.target.value)}
+                />
+                </label>
+                <AnimalDropdown />
+                <BreedDropdown />
+                <button>Submit</button>
+            </form>
+            </div>
+        );
+        };
+
+        export default SearchParams;
+
+    ```
+* If you need the effect to run once, then give it an empty dependency array. This is useful for setting up things.
+* If you want to run it every time the component updates, then remove the dependency array all together.
