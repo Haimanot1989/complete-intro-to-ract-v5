@@ -276,3 +276,7 @@
     ```
 * If you need the effect to run once, then give it an empty dependency array. This is useful for setting up things.
 * If you want to run it every time the component updates, then remove the dependency array all together.
+
+
+### Async & Routing
+* `npm install -D cross-env` to be able to set cross platform env variables
