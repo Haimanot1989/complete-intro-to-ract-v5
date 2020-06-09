@@ -280,3 +280,5 @@
 
 ### Async & Routing
 * `npm install -D cross-env` to be able to set cross platform env variables
+* One way data flow
+    * The general pattern for react is that Data flows from parent to child. This is very helpful in cases of error. We know where problems might have begun.
