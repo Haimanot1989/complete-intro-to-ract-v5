@@ -276,3 +276,21 @@
     ```
 * If you need the effect to run once, then give it an empty dependency array. This is useful for setting up things.
 * If you want to run it every time the component updates, then remove the dependency array all together.
+
+
+### Async & Routing
+* `npm install -D cross-env` to be able to set cross platform env variables
+* One way data flow
+    * The general pattern for react is that Data flows from parent to child. This is very helpful in cases of error. We know where problems might have begun.
+
+* Debugging
+    * Dump pretty formatted view of the props to the dom
+    ```jsx
+        const Details = props => {
+            return (
+                <pre>
+                <code>{JSON.stringify(props, null, 4)}</code>
+                </pre>
+            );
+        };
+    ```
