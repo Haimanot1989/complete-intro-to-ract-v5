@@ -282,3 +282,15 @@
 * `npm install -D cross-env` to be able to set cross platform env variables
 * One way data flow
     * The general pattern for react is that Data flows from parent to child. This is very helpful in cases of error. We know where problems might have begun.
+
+* Debugging
+    * Dump pretty formatted view of the props to the dom
+    ```jsx
+        const Details = props => {
+            return (
+                <pre>
+                <code>{JSON.stringify(props, null, 4)}</code>
+                </pre>
+            );
+        };
+    ```
