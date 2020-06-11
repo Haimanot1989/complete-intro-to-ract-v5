@@ -45,6 +45,23 @@
     * Enable in VSCode
         1. EXTENSIONS --> npm Intellisense --> Install
 
+* enable experimental syntax 
+    * `npm install -D babel-eslint @babel/core @babel/preset-env @babel/plugin-proposal-class-properties @babel/preset-react`
+    * create a `.babelrc` file and add 
+    ```js
+        {
+            "presets": ["@babel/preset-react", "@babel/preset-env"],
+            "plugins": ["@babel/plugin-proposal-class-properties"]
+        }
+    ```
+    * What they do
+        * `preset-react` brings all the plugins that we need to transpile react
+
+        * `preset-env` transpiles out code for the environment that we specify(package.json/browserslist)
+    * In `.eslintrc` add a parser option
+        * `  "parser": "babel-eslint",`
+            * We are telling eslint to use babel to understand the experimental syntax.
+
 ### Packager / Bundler
 #### Parcel
 * How to install
