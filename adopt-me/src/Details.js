@@ -11,7 +11,8 @@ class Details extends React.Component {
   componentDidMount() {
     //this.props contains anything that is passed from the parent
     //it is read only
-    pet.animal(this.props.id).then(animal => {
+    pet.animal(+this.props.id).then(({ animal }) => {
+      console.log(animal);
       this.setState({
         name: animal.name,
         animal: animal.type,
@@ -24,7 +25,20 @@ class Details extends React.Component {
     }, console.error);
   }
   render() {
-    return;
+    if (this.state.loading) {
+      return <h1>loading ...</h1>;
+    }
+    const { animal, breed, location, description, name } = this.state;
+    return (
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
   }
 }
 export default Details;
