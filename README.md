@@ -314,3 +314,7 @@
 
 ### Life cycle methods
 * `componentDidMount` Runs when when the component first gets created. A lot like Effect, but we don't pass any dependencies here like we do with Effect. Useful for doing ajax request
+
+### JS tips
+* `active: +event.target.dataset.index` The unary `+` coerses string to int 
+* Whenever you are passing functions into children or whenever you are doing event listeners, use arrow function.
