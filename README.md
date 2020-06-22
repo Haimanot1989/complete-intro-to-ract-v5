@@ -312,6 +312,10 @@
         };
     ```
 
+### Error Boundaries 
+* `getDriveStateFromError`
+* `componentDidCatch` 
+* `this.props.children` What ever the content of the component is
 ### Life cycle methods
 * `componentDidMount` Runs when when the component first gets created. A lot like Effect, but we don't pass any dependencies here like we do with Effect. Useful for doing ajax request
 
