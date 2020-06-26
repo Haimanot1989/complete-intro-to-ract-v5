@@ -312,8 +312,16 @@
         };
     ```
 
+### Error Boundaries 
+* `getDriveStateFromError`
+* `componentDidCatch` 
+* `this.props.children` What ever the content of the component is
 ### Life cycle methods
-* `componentDidMount` Runs when when the component first gets created. A lot like Effect, but we don't pass any dependencies here like we do with Effect. Useful for doing ajax request
+* `componentDidMount` Runs when when the component first gets created. A lot like Effect, but we don't pass any dependencies here like we do with Effect. Useful for doing ajax request, set things up, integrate with other libraries 
+* `componentDidUpdate` used to react to updates
+* `componentWillMount` allows you to clean up things before the component leaves the DOM
+* `componentWillReceiveProps` I'm about to receive brand new props
+* `componentWillUpdate` runs every single time we get new state or new props
 
 ### JS tips
 * `active: +event.target.dataset.index` The unary `+` coerses string to int 
