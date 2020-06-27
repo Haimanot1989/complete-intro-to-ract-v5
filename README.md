@@ -326,7 +326,7 @@
 ### Context
 * How to avoid `prop-drilling` - which is passing props to multiple levels of nesting
 * Context gives us a way to provide a global app state
-
+* To use the context hook in a component, the context provider has to be a parent of that component
 ### JS tips
 * `active: +event.target.dataset.index` The unary `+` coerses string to int 
 * Whenever you are passing functions into children or whenever you are doing event listeners, use arrow function.
