@@ -20,7 +20,9 @@
     *  Enabling formatting when saving code in VSCode
         1. EXTENSIONS --> Prettier - Code formatter --> Install
         2. Code --> Preferences --> Settings --> <Turn on two things>
-            * Editor: format on save
+            * Editor: 
+               * format on save
+               * Default Formatter : Prettier - Code formatter
             * Prettier: Require Config
         3. Create a bash config file
             * In the root folder of the project `touch .prettierrc`
